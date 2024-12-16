@@ -4,5 +4,5 @@ namespace discipline.hangfire.activity_rules.Data.Abstractions;
 
 public interface IActivityRulesDataService
 {
-    Task AddActivityRule(ActivityRuleDto activityRuleDto);
+    Task AddActivityRule(ActivityRuleDto activityRuleDto, DateTime updatedAt);
 }

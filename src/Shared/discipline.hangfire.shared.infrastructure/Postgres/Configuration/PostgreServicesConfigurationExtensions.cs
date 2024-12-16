@@ -1,4 +1,4 @@
-using discipline.hangfire.shared.abstractions.Context;
+using discipline.hangfire.shared.abstractions.DataAccess;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

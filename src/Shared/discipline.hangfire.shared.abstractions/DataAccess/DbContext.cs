@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace discipline.hangfire.shared.abstractions.Context;
+namespace discipline.hangfire.shared.abstractions.DataAccess;
 
 public interface IDbContext
 {

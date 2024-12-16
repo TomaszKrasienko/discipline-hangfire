@@ -1,5 +1,5 @@
 using System.Data;
-using discipline.hangfire.shared.abstractions.Context;
+using discipline.hangfire.shared.abstractions.DataAccess;
 
 namespace discipline.hangfire.infrastructure.Postgres;
 
