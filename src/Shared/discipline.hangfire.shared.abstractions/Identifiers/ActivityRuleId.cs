@@ -1,4 +1,4 @@
-namespace discipline.hangfire.shared.Identifiers;
+namespace discipline.hangfire.shared.abstractions.Identifiers;
 
 public sealed record ActivityRuleId(Ulid Value)
 {

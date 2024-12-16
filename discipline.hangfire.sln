@@ -4,14 +4,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{97E2391C-0AA6-4EC1-AB5F-1D62B1366F9A}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Packages.props = src\Directory.Packages.props
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.server", "src\discipline.hangfire.server\discipline.hangfire.server.csproj", "{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.server", "src\Bootstrappers\discipline.hangfire.server\discipline.hangfire.server.csproj", "{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{3F33D287-4964-43F3-BA31-7BF46096E139}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.activity-rules", "src\Features\discipline.hangfire.activity-rules\discipline.hangfire.activity-rules.csproj", "{566C8922-FF39-490C-A16A-0915A12E9BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.shared", "src\discipline.hangfire.shared\discipline.hangfire.shared.csproj", "{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.shared.abstractions", "src\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj", "{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{874DD73B-5ACC-4E00-8EF1-748776BF2BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.shared.infrastructure", "src\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj", "{36F8125F-0335-44E1-B104-DB6EAA2B8666}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrappers", "Bootstrappers", "{5516519D-86BC-449D-8413-0DC848487EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +32,13 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59} = {97E2391C-0AA6-4EC1-AB5F-1D62B1366F9A}
 		{3F33D287-4964-43F3-BA31-7BF46096E139} = {97E2391C-0AA6-4EC1-AB5F-1D62B1366F9A}
 		{566C8922-FF39-490C-A16A-0915A12E9BC2} = {3F33D287-4964-43F3-BA31-7BF46096E139}
-		{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B} = {97E2391C-0AA6-4EC1-AB5F-1D62B1366F9A}
+		{874DD73B-5ACC-4E00-8EF1-748776BF2BFC} = {97E2391C-0AA6-4EC1-AB5F-1D62B1366F9A}
+		{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B} = {874DD73B-5ACC-4E00-8EF1-748776BF2BFC}
+		{36F8125F-0335-44E1-B104-DB6EAA2B8666} = {874DD73B-5ACC-4E00-8EF1-748776BF2BFC}
+		{5516519D-86BC-449D-8413-0DC848487EDF} = {97E2391C-0AA6-4EC1-AB5F-1D62B1366F9A}
+		{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59} = {5516519D-86BC-449D-8413-0DC848487EDF}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +53,9 @@ Global
 		{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F8125F-0335-44E1-B104-DB6EAA2B8666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F8125F-0335-44E1-B104-DB6EAA2B8666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F8125F-0335-44E1-B104-DB6EAA2B8666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F8125F-0335-44E1-B104-DB6EAA2B8666}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-using discipline.hangfire.shared.Identifiers;
+using discipline.hangfire.shared.abstractions.Identifiers;
 
 namespace discipline.hangfire.activity_rules.Events.External;
 

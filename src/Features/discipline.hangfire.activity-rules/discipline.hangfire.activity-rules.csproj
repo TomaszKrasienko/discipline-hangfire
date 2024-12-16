@@ -1,18 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
         <RootNamespace>discipline.hangfire.activity_rules</RootNamespace>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\discipline.hangfire.shared\discipline.hangfire.shared.csproj" />
+      <PackageReference Include="Refit" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Refit" Version="8.0.0" />
+      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj" />
     </ItemGroup>
 
 </Project>
