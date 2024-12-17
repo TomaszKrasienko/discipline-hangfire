@@ -9,7 +9,9 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
       <PackageReference Include="Microsoft.Extensions.Hosting" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
+      <PackageReference Include="Newtonsoft.Json" />
       <PackageReference Include="Npgsql" />
+      <PackageReference Include="Scrutor" />
       <PackageReference Include="StackExchange.Redis" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
     </ItemGroup>
