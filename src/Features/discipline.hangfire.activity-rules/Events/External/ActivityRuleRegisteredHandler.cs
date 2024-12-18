@@ -1,12 +1,15 @@
 using discipline.hangfire.activity_rules.Clients;
+using discipline.hangfire.activity_rules.Data;
 using discipline.hangfire.activity_rules.Data.Abstractions;
 using discipline.hangfire.shared.abstractions.Auth;
 using discipline.hangfire.shared.abstractions.Events;
 using discipline.hangfire.shared.abstractions.Time;
+using Microsoft.Extensions.Logging;
 
 namespace discipline.hangfire.activity_rules.Events.External;
 
 internal sealed class ActivityRuleRegisteredHandler(
+    ILogger<ActivityRuleRegisteredHandler> logger,
     ICentreTokenGenerator centreTokenGenerator,
     ICentreActivityRuleClient client,
     IActivityRulesDataService dataService,
@@ -18,6 +21,13 @@ internal sealed class ActivityRuleRegisteredHandler(
         var activityRule = await client.GetActivityRules(token, @event.ActivityRuleId.Value,
             @event.UserId.Value);
 
+        if (activityRule is null)
+        {
+            logger.LogError("Activity Rule with 'Id': {0} and 'UserId': {1} not found", @event.ActivityRuleId.Value, 
+                @event.UserId.Value);
+            return;
+        }
+        
         await dataService.AddActivityRule(activityRule, clock.Now());
     }
 }

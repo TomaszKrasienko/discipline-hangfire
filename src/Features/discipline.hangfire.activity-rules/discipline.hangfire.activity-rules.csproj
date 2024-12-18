@@ -6,11 +6,16 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
       <PackageReference Include="Refit" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj" />
+      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
     </ItemGroup>
-
+    <ItemGroup>
+        <InternalsVisibleTo Include="discipline.hangfire.activity-rules.unit_tests"/>
+        <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+    </ItemGroup>
 </Project>

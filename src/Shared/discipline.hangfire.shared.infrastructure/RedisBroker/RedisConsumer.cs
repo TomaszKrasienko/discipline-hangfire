@@ -18,13 +18,13 @@ internal sealed class RedisConsumer<TEvent>(
         var subscriber = connectionMultiplexer.GetSubscriber();
         var channel = routeRegister.GetChannel<TEvent>();
 
-        await subscriber.SubscribeAsync(new RedisChannel(channel, RedisChannel.PatternMode.Auto), (channel, message) =>
+        await subscriber.SubscribeAsync(new RedisChannel(channel, RedisChannel.PatternMode.Auto), async (channel, message) =>
         {
             using var scope = serviceProvider.CreateScope();
             var eventDispatcher = scope.ServiceProvider.GetRequiredService<IEventDispatcher>();
 
             var @event = serializer.ToObject<TEvent>(message);
-            eventDispatcher.HandleAsync(@event, stoppingToken);
+            await eventDispatcher.HandleAsync(@event, stoppingToken);
         });
     }
 }
