@@ -1,5 +1,7 @@
 using System.Reflection;
 using discipline.hangfire.infrastructure.Postgres.Configuration;
+using discipline.hangfire.infrastructure.RedisBroker;
+using discipline.hangfire.infrastructure.RedisBroker.Configuration;
 using discipline.hangfire.infrastructure.Serializer.Configuration;
 using discipline.hangfire.infrastructure.Time.Configuration;
 using Microsoft.Extensions.Configuration;
@@ -27,5 +29,6 @@ public static class InfrastructureServicesExtensions
             .AddClock()
             .AddPostgres(configuration)
             .AddEvents(assemblies)
-            .AddSerializer();
+            .AddSerializer()
+            .AddRedisBroker(configuration);
 }

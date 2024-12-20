@@ -9,11 +9,12 @@ using Microsoft.IdentityModel.Tokens;
 namespace discipline.hangfire.infrastructure.Auth;
 
 internal sealed class CentreJwtTokenGenerator(
-    IOptions<JwtOptions> jwtOptions,
+    IOptions<JwtAuthOptions> jwtOptions,
     IClock clock) : ICentreTokenGenerator
 {
     private readonly JwtSecurityTokenHandler _tokenHandler = new ();
-    private readonly string _privateKeyPath = jwtOptions.Value.PrivateCertPath;
+    private readonly string _privateKeyPath = jwtOptions.Value.PrivateKeyCertPath;
+    private readonly string _pasword = jwtOptions.Value.PrivateKeyPassword;
     private readonly TimeSpan _expiry = jwtOptions.Value.TokenExpiry;
     private readonly string _audience = jwtOptions.Value.Audience;
     private readonly string _issuer = jwtOptions.Value.Issuer;
@@ -21,7 +22,7 @@ internal sealed class CentreJwtTokenGenerator(
     public string Get()
     {
         RSA privateKey = RSA.Create();
-        privateKey.ImportFromEncryptedPem(input: _privateKeyPath, password: string.Empty);
+        privateKey.ImportFromEncryptedPem(input: File.ReadAllText(_privateKeyPath), password: _pasword);
         var key = new RsaSecurityKey(privateKey);
         
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);

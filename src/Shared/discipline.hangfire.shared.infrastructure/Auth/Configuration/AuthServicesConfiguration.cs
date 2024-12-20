@@ -14,7 +14,7 @@ internal static class AuthServicesConfiguration
             .AddServices(); 
     
     private static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
-        => services.Configure<JwtOptions>(configuration.GetSection("JwtCentre"));
+        => services.Configure<JwtAuthOptions>(configuration.GetSection(nameof(JwtAuthOptions)));
 
     private static IServiceCollection AddServices(this IServiceCollection services)
         => services
