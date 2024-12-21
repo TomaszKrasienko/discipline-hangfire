@@ -13,7 +13,7 @@ internal static class PostgreServicesConfigurationExtensions
     
     private static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
         => services
-            .Configure<LogicPostgreOptions>(configuration.GetSection(nameof(LogicPostgreOptions)));
+            .Configure<LogicPostgresOptions>(configuration.GetSection(nameof(LogicPostgresOptions)));
 
     private static IServiceCollection AddServices(this IServiceCollection services)
         => services.AddScoped<IDbContext, PostgreSqlDbContext>();

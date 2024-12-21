@@ -28,6 +28,6 @@ internal sealed class ActivityRuleRegisteredHandler(
             return;
         }
         
-        await dataService.AddActivityRule(activityRule, clock.Now());
+        await dataService.AddActivityRule(activityRule, @event.UserId, clock.Now());
     }
 }

@@ -2,13 +2,14 @@ using Dapper;
 using discipline.hangfire.activity_rules.Data.Abstractions;
 using discipline.hangfire.activity_rules.DTOs;
 using discipline.hangfire.shared.abstractions.DataAccess;
+using discipline.hangfire.shared.abstractions.Identifiers;
 
 namespace discipline.hangfire.activity_rules.Data;
 
 internal sealed class ActivityRulesDataService(
     IDbContext context) : IActivityRulesDataService
 {
-    public async Task AddActivityRule(ActivityRuleDto activityRuleDto, DateTime updatedAt)
+    public async Task AddActivityRule(ActivityRuleDto activityRuleDto, UserId userId, DateTime updatedAt)
     {
         using var connection = context.GetConnection();
         connection.Open();
@@ -18,8 +19,8 @@ internal sealed class ActivityRulesDataService(
         
         await connection.ExecuteAsync(sql, new
         {
-            ActivityRuleId = activityRuleDto.ActivityRuleId.Value, 
-            UserId = activityRuleDto.UserId, 
+            ActivityRuleId = activityRuleDto.ActivityRuleId.Value.ToString(),  
+            UserId = userId.Value.ToString(),
             Mode = activityRuleDto.Mode,
             SelectedDays = activityRuleDto.SelectedDays is null ? null : string.Join(',', activityRuleDto.SelectedDays.ToArray()),
             UpdatedAt = updatedAt

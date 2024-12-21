@@ -22,7 +22,10 @@ internal sealed class CentreJwtTokenGenerator(
     public string Get()
     {
         RSA privateKey = RSA.Create();
-        privateKey.ImportFromEncryptedPem(input: File.ReadAllText(_privateKeyPath), password: _pasword);
+
+        var certContent = File.ReadAllText(_privateKeyPath);
+        
+        privateKey.ImportFromEncryptedPem(input: certContent, password: _pasword);
         var key = new RsaSecurityKey(privateKey);
         
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);
