@@ -10,15 +10,13 @@ namespace discipline.hangfire.activity_rules.Events.External;
 
 internal sealed class ActivityRuleRegisteredHandler(
     ILogger<ActivityRuleRegisteredHandler> logger,
-    ICentreTokenGenerator centreTokenGenerator,
     ICentreActivityRuleClient client,
     IActivityRulesDataService dataService,
     IClock clock) : IEventHandler<ActivityRuleRegistered>
 {
     public async Task HandleAsync(ActivityRuleRegistered @event, CancellationToken cancellationToken)
     {
-        var token = centreTokenGenerator.Get();
-        var activityRule = await client.GetActivityRules(token, @event.ActivityRuleId.Value,
+        var activityRule = await client.GetActivityRules(@event.ActivityRuleId.Value,
             @event.UserId.Value);
 
         if (activityRule is null)

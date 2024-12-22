@@ -6,6 +6,7 @@ using discipline.hangfire.infrastructure.Serializer.Configuration;
 using discipline.hangfire.infrastructure.Time.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace discipline.hangfire.infrastructure.Configuration;
 
@@ -31,4 +32,24 @@ public static class InfrastructureServicesExtensions
             .AddEvents(assemblies)
             .AddSerializer()
             .AddRedisBroker(configuration);
+    
+    /// <summary>
+    /// Extension for <see cref="IServiceCollection"/> that validates options at startup and registers them in dependency injection container. 
+    /// </summary>
+    /// <param name="services">The Dependency Injection container, see <see cref="IServiceCollection"/> for more details</param>
+    /// <param name="configuration">The Configuration source, typically loaded from secrets or appsettings. See <see cref="IConfiguration"/> for more details.</param>
+    /// <typeparam name="TOptions">The type of options being registered.</typeparam>
+    /// <typeparam name="TOptionsValidator">Set of validation rules for <see cref="TOptions"/>.</typeparam>
+    /// <returns>Extended <see cref="IServiceCollection"/>.</returns>
+    public static IServiceCollection ValidateAndBind<TOptions, TOptionsValidator>(this IServiceCollection services,
+        IConfiguration configuration) where TOptions : class where TOptionsValidator : class, IValidateOptions<TOptions>
+    {
+        services
+            .AddOptions<TOptions>()
+            .Bind(configuration.GetSection(typeof(TOptions).Name))
+            .ValidateOnStart();
+        services.AddSingleton<IValidateOptions<TOptions>, TOptionsValidator>();
+        
+        return services;
+    }
 }

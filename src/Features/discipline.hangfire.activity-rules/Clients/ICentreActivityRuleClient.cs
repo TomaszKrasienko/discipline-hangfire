@@ -7,5 +7,5 @@ namespace discipline.hangfire.activity_rules.Clients;
 internal interface ICentreActivityRuleClient
 {
     [Get("/activity-rules-module/activity-rules-internal/{userId}/{activityRuleId}")]
-    Task<ActivityRuleDto?> GetActivityRules([Header("Bearer_hf")] string token, Ulid activityRuleId, Ulid userId); 
+    Task<ActivityRuleDto?> GetActivityRules(Ulid activityRuleId, Ulid userId); 
 }
