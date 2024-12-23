@@ -18,9 +18,11 @@ internal sealed class JwtOptionsValidator : IValidateOptions<JwtOptions>
 
         if (!stringKeyPublishingValidationResults.TrueForAll(x => x.Key))
         {
-            errorMessagesBuilder.Append(stringKeyPublishingValidationResults
+            errorMessagesBuilder.Append(
+            string.Join(',', stringKeyPublishingValidationResults
                 .Where(x => !x.Key)
-                .Select(x => $"{x.Value}, "));
+                .Select(x => x.Value)
+                .ToArray()));
         }
 
         if (options.TokenExpiry == TimeSpan.Zero)
