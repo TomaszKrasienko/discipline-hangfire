@@ -30,9 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A00A35F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{EB76E6B3-4069-4CA3-A9A4-40F23390DA84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.activity-rules.unit_tests", "tests\Features\discipline.hangfire.activity-rules.unit_tests\discipline.hangfire.activity-rules.unit_tests.csproj", "{845B1A5B-C56A-4E1E-93AC-394B569EBE8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.add-activity-rules.unit_tests", "tests\Features\discipline.hangfire.add-activity-rules.unit_tests\discipline.hangfire.add-activity-rules.unit_tests.csproj", "{845B1A5B-C56A-4E1E-93AC-394B569EBE8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.add-planned-tasks", "src\Features\discipline.hangfire.add-planned-tasks\discipline.hangfire.add-planned-tasks.csproj", "{8C619A2F-B248-4228-A78B-05C964CB208A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.add-planned-tasks.unit_tests", "tests\Features\discipline.hangfire.add-planned-tasks.unit_tests\discipline.hangfire.add-planned-tasks.unit_tests.csproj", "{CEA6C19A-87CD-4285-87AC-69254CC8E622}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,7 @@ Global
 		{EB76E6B3-4069-4CA3-A9A4-40F23390DA84} = {1A00A35F-C5AC-4162-BB59-A751E697B239}
 		{845B1A5B-C56A-4E1E-93AC-394B569EBE8E} = {EB76E6B3-4069-4CA3-A9A4-40F23390DA84}
 		{8C619A2F-B248-4228-A78B-05C964CB208A} = {3F33D287-4964-43F3-BA31-7BF46096E139}
+		{CEA6C19A-87CD-4285-87AC-69254CC8E622} = {EB76E6B3-4069-4CA3-A9A4-40F23390DA84}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -79,5 +82,9 @@ Global
 		{8C619A2F-B248-4228-A78B-05C964CB208A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C619A2F-B248-4228-A78B-05C964CB208A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C619A2F-B248-4228-A78B-05C964CB208A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA6C19A-87CD-4285-87AC-69254CC8E622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA6C19A-87CD-4285-87AC-69254CC8E622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA6C19A-87CD-4285-87AC-69254CC8E622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA6C19A-87CD-4285-87AC-69254CC8E622}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

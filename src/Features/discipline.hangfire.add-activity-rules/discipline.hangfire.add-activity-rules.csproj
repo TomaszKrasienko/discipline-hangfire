@@ -16,7 +16,7 @@
       <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <InternalsVisibleTo Include="discipline.hangfire.activity-rules.unit_tests"/>
+        <InternalsVisibleTo Include="discipline.hangfire.add-activity-rules.unit_tests"/>
         <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
     </ItemGroup>
 </Project>

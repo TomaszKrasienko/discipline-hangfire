@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RootNamespace>discipline.hangfire.add_planned_tasks</RootNamespace>
+        <RootNamespace>discipline.hangfire.add_planned_tasks.unit_tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
