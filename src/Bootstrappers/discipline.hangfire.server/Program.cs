@@ -14,7 +14,7 @@ var allAssemblies = AppDomain
 builder.Services
     .AddDisciplineHangfire(builder.Configuration)
     .AddInfrastructure(builder.Configuration, allAssemblies)
-    .AddActivityRules(builder.Configuration);
+    .SetAddActivityRules(builder.Configuration);
 
 var app = builder.Build();
 app.UseDisciplineHangfireServer();

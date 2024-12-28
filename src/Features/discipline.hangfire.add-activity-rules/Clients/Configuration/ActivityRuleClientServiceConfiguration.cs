@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Refit;
 
-namespace discipline.hangfire.activity_rules.Clients.Configuration;
+namespace discipline.hangfire.add_activity_rules.Clients.Configuration;
 
 internal static class ActivityRuleClientServiceConfiguration
 {

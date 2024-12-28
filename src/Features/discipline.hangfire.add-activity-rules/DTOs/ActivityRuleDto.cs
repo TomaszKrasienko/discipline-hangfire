@@ -1,6 +1,6 @@
 using discipline.hangfire.shared.abstractions.Identifiers;
 
-namespace discipline.hangfire.activity_rules.DTOs;
+namespace discipline.hangfire.add_activity_rules.DTOs;
 
 public sealed record ActivityRuleDto
 {

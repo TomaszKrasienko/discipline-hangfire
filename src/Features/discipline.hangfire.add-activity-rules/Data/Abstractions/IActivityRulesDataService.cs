@@ -1,7 +1,7 @@
-using discipline.hangfire.activity_rules.DTOs;
+using discipline.hangfire.add_activity_rules.DTOs;
 using discipline.hangfire.shared.abstractions.Identifiers;
 
-namespace discipline.hangfire.activity_rules.Data.Abstractions;
+namespace discipline.hangfire.add_activity_rules.Data.Abstractions;
 
 public interface IActivityRulesDataService
 {

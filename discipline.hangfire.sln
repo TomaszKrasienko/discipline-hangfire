@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.server"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{3F33D287-4964-43F3-BA31-7BF46096E139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.activity-rules", "src\Features\discipline.hangfire.activity-rules\discipline.hangfire.activity-rules.csproj", "{566C8922-FF39-490C-A16A-0915A12E9BC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.add-activity-rules", "src\Features\discipline.hangfire.add-activity-rules\discipline.hangfire.add-activity-rules.csproj", "{566C8922-FF39-490C-A16A-0915A12E9BC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.shared.abstractions", "src\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj", "{F066A7CC-91FC-42E2-A1D9-63E0F5BF567B}"
 EndProject
@@ -31,6 +31,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{EB76E6B3-4069-4CA3-A9A4-40F23390DA84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.activity-rules.unit_tests", "tests\Features\discipline.hangfire.activity-rules.unit_tests\discipline.hangfire.activity-rules.unit_tests.csproj", "{845B1A5B-C56A-4E1E-93AC-394B569EBE8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "discipline.hangfire.add-planned-tasks", "src\Features\discipline.hangfire.add-planned-tasks\discipline.hangfire.add-planned-tasks.csproj", "{8C619A2F-B248-4228-A78B-05C964CB208A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,7 @@ Global
 		{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59} = {5516519D-86BC-449D-8413-0DC848487EDF}
 		{EB76E6B3-4069-4CA3-A9A4-40F23390DA84} = {1A00A35F-C5AC-4162-BB59-A751E697B239}
 		{845B1A5B-C56A-4E1E-93AC-394B569EBE8E} = {EB76E6B3-4069-4CA3-A9A4-40F23390DA84}
+		{8C619A2F-B248-4228-A78B-05C964CB208A} = {3F33D287-4964-43F3-BA31-7BF46096E139}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{09D4CAF9-5383-43CE-ABE2-FFD6A7B52B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +75,9 @@ Global
 		{845B1A5B-C56A-4E1E-93AC-394B569EBE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{845B1A5B-C56A-4E1E-93AC-394B569EBE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{845B1A5B-C56A-4E1E-93AC-394B569EBE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C619A2F-B248-4228-A78B-05C964CB208A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C619A2F-B248-4228-A78B-05C964CB208A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C619A2F-B248-4228-A78B-05C964CB208A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C619A2F-B248-4228-A78B-05C964CB208A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

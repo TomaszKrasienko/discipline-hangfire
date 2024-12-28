@@ -1,7 +1,7 @@
-using discipline.hangfire.activity_rules.Clients;
-using discipline.hangfire.activity_rules.Data.Abstractions;
-using discipline.hangfire.activity_rules.DTOs;
-using discipline.hangfire.activity_rules.Events.External;
+using discipline.hangfire.add_activity_rules.Clients;
+using discipline.hangfire.add_activity_rules.Data.Abstractions;
+using discipline.hangfire.add_activity_rules.DTOs;
+using discipline.hangfire.add_activity_rules.Events.External;
 using discipline.hangfire.shared.abstractions.Auth;
 using discipline.hangfire.shared.abstractions.Events;
 using discipline.hangfire.shared.abstractions.Identifiers;
@@ -20,22 +20,16 @@ public sealed class ActivityRuleRegisteredHandlerTests
     {
         //arrange
         var @event = new ActivityRuleRegistered(ActivityRuleId.New(), UserId.New());
-        
-        var token = Guid.NewGuid().ToString();
-        _centreTokenGenerator
-            .Get()
-            .Returns(token);
 
         var activityRuleDto = new ActivityRuleDto
         {
             ActivityRuleId = @event.ActivityRuleId,
-            UserId = @event.UserId,
             Mode = "everyday",
             SelectedDays = null
         };
         
         _centreActivityRuleClient
-            .GetActivityRules(token, @event.ActivityRuleId.Value, @event.UserId.Value)
+            .GetActivityRules(@event.ActivityRuleId.Value, @event.UserId.Value)
             .Returns(activityRuleDto);
         
         var now = DateTime.UtcNow;
@@ -49,7 +43,7 @@ public sealed class ActivityRuleRegisteredHandlerTests
         //assert
         await _activityRulesDataService
             .Received(1)
-            .AddActivityRule(activityRuleDto, now);
+            .AddActivityRule(activityRuleDto, @event.UserId, now);
     }
     
     [Fact]
@@ -57,14 +51,9 @@ public sealed class ActivityRuleRegisteredHandlerTests
     {
         //arrange
         var @event = new ActivityRuleRegistered(ActivityRuleId.New(), UserId.New());
-        
-        var token = Guid.NewGuid().ToString();
-        _centreTokenGenerator
-            .Get()
-            .Returns(token);
 
         _centreActivityRuleClient
-            .GetActivityRules(token, @event.ActivityRuleId.Value, @event.UserId.Value)
+            .GetActivityRules(@event.ActivityRuleId.Value, @event.UserId.Value)
             .ReturnsNull();
         
         //act
@@ -73,12 +62,11 @@ public sealed class ActivityRuleRegisteredHandlerTests
         //assert
         await _activityRulesDataService
             .Received(0)
-            .AddActivityRule(Arg.Any<ActivityRuleDto>(), Arg.Any<DateTime>());
+            .AddActivityRule(Arg.Any<ActivityRuleDto>(), Arg.Any<UserId>(),Arg.Any<DateTime>());
     }
     
     #region arrange
     private readonly ILogger<ActivityRuleRegisteredHandler> _logger;
-    private readonly ICentreTokenGenerator _centreTokenGenerator;
     private readonly ICentreActivityRuleClient _centreActivityRuleClient;
     private readonly IActivityRulesDataService _activityRulesDataService;
     private readonly IClock _clock;
@@ -87,12 +75,11 @@ public sealed class ActivityRuleRegisteredHandlerTests
     public ActivityRuleRegisteredHandlerTests()
     {
         _logger = Substitute.For<ILogger<ActivityRuleRegisteredHandler>>();
-        _centreTokenGenerator = Substitute.For<ICentreTokenGenerator>();
         _centreActivityRuleClient = Substitute.For<ICentreActivityRuleClient>();
         _activityRulesDataService = Substitute.For<IActivityRulesDataService>();
         _clock = Substitute.For<IClock>();
-        _handler = new ActivityRuleRegisteredHandler(_logger, _centreTokenGenerator,
-            _centreActivityRuleClient, _activityRulesDataService, _clock);
+        _handler = new ActivityRuleRegisteredHandler(_logger, _centreActivityRuleClient,
+            _activityRulesDataService, _clock);
     }
     #endregion
 }

@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\Features\discipline.hangfire.activity-rules\discipline.hangfire.activity-rules.csproj" />
+      <ProjectReference Include="..\..\..\src\Features\discipline.hangfire.add-activity-rules\discipline.hangfire.add-activity-rules.csproj" />
     </ItemGroup>
 
 </Project>

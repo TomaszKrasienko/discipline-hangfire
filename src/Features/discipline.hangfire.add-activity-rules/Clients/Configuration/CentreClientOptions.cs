@@ -1,4 +1,4 @@
-namespace discipline.hangfire.activity_rules.Clients.Configuration;
+namespace discipline.hangfire.add_activity_rules.Clients.Configuration;
 
 internal sealed class CentreClientOptions
 {

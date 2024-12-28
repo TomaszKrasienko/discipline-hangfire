@@ -19,13 +19,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Features\discipline.hangfire.activity-rules\discipline.hangfire.activity-rules.csproj" />
+      <ProjectReference Include="..\..\Features\discipline.hangfire.add-activity-rules\discipline.hangfire.add-activity-rules.csproj" />
       <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <None Update="Certs\private_key_hangfire.pem">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
       <None Update="Certs\public_key_hangfire.pem">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>

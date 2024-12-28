@@ -1,10 +1,10 @@
 using Dapper;
-using discipline.hangfire.activity_rules.Data.Abstractions;
-using discipline.hangfire.activity_rules.DTOs;
+using discipline.hangfire.add_activity_rules.Data.Abstractions;
+using discipline.hangfire.add_activity_rules.DTOs;
 using discipline.hangfire.shared.abstractions.DataAccess;
 using discipline.hangfire.shared.abstractions.Identifiers;
 
-namespace discipline.hangfire.activity_rules.Data;
+namespace discipline.hangfire.add_activity_rules.Data;
 
 internal sealed class ActivityRulesDataService(
     IDbContext context) : IActivityRulesDataService

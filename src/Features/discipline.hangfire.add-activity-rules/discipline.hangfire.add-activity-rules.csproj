@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RootNamespace>discipline.hangfire.activity_rules</RootNamespace>
+        <RootNamespace>discipline.hangfire.add_activity_rules</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

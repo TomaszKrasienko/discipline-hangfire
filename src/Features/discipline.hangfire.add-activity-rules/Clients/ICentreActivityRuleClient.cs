@@ -1,7 +1,7 @@
-using discipline.hangfire.activity_rules.DTOs;
+using discipline.hangfire.add_activity_rules.DTOs;
 using Refit;
 
-namespace discipline.hangfire.activity_rules.Clients;
+namespace discipline.hangfire.add_activity_rules.Clients;
 
 [Headers("Content-Type: application/json")]
 internal interface ICentreActivityRuleClient

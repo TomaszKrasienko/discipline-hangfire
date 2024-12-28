@@ -1,12 +1,10 @@
-using discipline.hangfire.activity_rules.Clients;
-using discipline.hangfire.activity_rules.Data;
-using discipline.hangfire.activity_rules.Data.Abstractions;
-using discipline.hangfire.shared.abstractions.Auth;
+using discipline.hangfire.add_activity_rules.Clients;
+using discipline.hangfire.add_activity_rules.Data.Abstractions;
 using discipline.hangfire.shared.abstractions.Events;
 using discipline.hangfire.shared.abstractions.Time;
 using Microsoft.Extensions.Logging;
 
-namespace discipline.hangfire.activity_rules.Events.External;
+namespace discipline.hangfire.add_activity_rules.Events.External;
 
 internal sealed class ActivityRuleRegisteredHandler(
     ILogger<ActivityRuleRegisteredHandler> logger,
