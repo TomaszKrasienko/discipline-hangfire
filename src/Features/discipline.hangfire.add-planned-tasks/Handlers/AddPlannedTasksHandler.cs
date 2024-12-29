@@ -14,7 +14,7 @@ internal sealed class AddPlannedTasksHandler(
     {
         var today = DateOnly.FromDateTime(DateTime.UtcNow);
         
-        var activeModes = await centreActivityRuleClient.GetActivityRules(today);
+        var activeModes = await centreActivityRuleClient.GetActiveModeAsync(today);
         if (activeModes is null)
         {
             return;
@@ -27,7 +27,7 @@ internal sealed class AddPlannedTasksHandler(
         
         foreach (var activityRule in activityRules)
         {
-            await plannedTaskDataService.CreatePlannedTask(activityRule.ActivityRuleId, activityRule.UserId,
+            await plannedTaskDataService.CreatePlannedTaskAsync(activityRule.ActivityRuleId, activityRule.UserId,
                 plannedFor.AddDays(1), cancellationToken);
         }
     }

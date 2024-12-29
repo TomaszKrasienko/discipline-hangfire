@@ -6,13 +6,17 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+      <PackageReference Include="Microsoft.Extensions.Options" />
       <PackageReference Include="Refit" />
+      <PackageReference Include="Refit.HttpClientFactory" />
       <PackageReference Include="Ulid" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj" />
+      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

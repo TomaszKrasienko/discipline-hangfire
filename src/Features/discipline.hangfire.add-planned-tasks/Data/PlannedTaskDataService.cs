@@ -7,7 +7,7 @@ namespace discipline.hangfire.add_planned_tasks.Data;
 internal sealed class PlannedTaskDataService(
     IDbContext context) : IPlannedTaskDataService
 {
-    public async Task CreatePlannedTask(Ulid activityRuleId, Ulid userId, DateOnly plannedFor,
+    public async Task CreatePlannedTaskAsync(Ulid activityRuleId, Ulid userId, DateOnly plannedFor,
         CancellationToken cancellationToken)
     {
         using var connection = context.GetConnection();
