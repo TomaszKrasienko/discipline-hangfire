@@ -7,5 +7,6 @@ public static class AddPlannedTasksServicesConfigurationExtensions
 {
     public static IServiceCollection SetAddPlannedTasks(this IServiceCollection services)
         => services
+            .AddData()
             .AddHandlers();
 }

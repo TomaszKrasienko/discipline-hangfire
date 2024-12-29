@@ -5,9 +5,14 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Dapper" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
       <PackageReference Include="Refit" />
       <PackageReference Include="Ulid" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj" />
     </ItemGroup>
 
 </Project>

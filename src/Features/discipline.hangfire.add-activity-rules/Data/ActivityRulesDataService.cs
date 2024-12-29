@@ -14,15 +14,17 @@ internal sealed class ActivityRulesDataService(
         using var connection = context.GetConnection();
         connection.Open();
 
-        string sql = @"insert into centre.""ActivityRules"" (""activity_rule_id"", ""user_id"", ""mode"", ""selected_days"", ""updated_at"")
-              values (@ActivityRuleId, @UserId, @Mode, @SelectedDays, @UpdatedAt);";
+        const string sql = """
+                           INSERT INTO centre."ActivityRules" ("activity_rule_id", "user_id", "mode", "selected_days", "updated_at")
+                           VALUES (@ActivityRuleId, @UserId, @Mode, @SelectedDays, @UpdatedAt);
+                           """;
         
         await connection.ExecuteAsync(sql, new
         {
             ActivityRuleId = activityRuleDto.ActivityRuleId.Value.ToString(),  
             UserId = userId.Value.ToString(),
             Mode = activityRuleDto.Mode,
-            SelectedDays = activityRuleDto.SelectedDays is null ? null : string.Join(',', activityRuleDto.SelectedDays.ToArray()),
+            SelectedDays = activityRuleDto.SelectedDays?.ToArray(),
             UpdatedAt = updatedAt
         });
     }
