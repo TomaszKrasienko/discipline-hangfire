@@ -1,3 +1,4 @@
+using discipline.hangfire.add_planned_tasks.Handlers.Abstractions;
 using discipline.hangfire.server.Hangfire;
 using Hangfire;
 using Hangfire.PostgreSql;
@@ -25,7 +26,7 @@ internal static class HangfireServicesConfigurationExtensions
         using var scope = sp.CreateScope();
         var postgresOptions = scope.ServiceProvider.GetRequiredService<IOptions<PostgresOptions>>();
         services
-            .AddHangfire(configuration => 
+            .AddHangfire(configuration =>
                 configuration
                     .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
                     .UseSimpleAssemblyNameTypeSerializer()

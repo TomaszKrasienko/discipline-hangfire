@@ -16,5 +16,5 @@ internal static class PostgreServicesConfigurationExtensions
             .Configure<LogicPostgresOptions>(configuration.GetSection(nameof(LogicPostgresOptions)));
 
     private static IServiceCollection AddServices(this IServiceCollection services)
-        => services.AddScoped<IDbContext, PostgreSqlDbContext>();
+        => services.AddTransient<IDbContext, PostgreSqlDbContext>();
 }

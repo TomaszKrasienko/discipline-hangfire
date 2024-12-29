@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Features\discipline.hangfire.add-activity-rules\discipline.hangfire.add-activity-rules.csproj" />
+      <ProjectReference Include="..\..\Features\discipline.hangfire.add-planned-tasks\discipline.hangfire.add-planned-tasks.csproj" />
       <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
     </ItemGroup>
 

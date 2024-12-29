@@ -7,5 +7,5 @@ namespace discipline.hangfire.add_planned_tasks.Clients;
 internal interface ICentreActivityRuleClient
 {
     [Get("/activity-rules-module/activity-rules-internal/modes/{day}")]
-    Task<ActiveModesDto?> GetActiveModeAsync(DateOnly day); 
+    Task<ActiveModesDto?> GetActiveModeAsync(string day); 
 }

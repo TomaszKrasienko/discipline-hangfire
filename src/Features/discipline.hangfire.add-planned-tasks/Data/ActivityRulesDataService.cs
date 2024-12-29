@@ -28,7 +28,7 @@ internal sealed class ActivityRulesDataService(
         var result = await connection.QueryAsync<ActivityRuleDto>(sql, new
         {
             @day = day,
-            @modes = modes
+            @modes = string.Join(",", modes)
         });
         
         return result.ToList();

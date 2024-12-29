@@ -2,9 +2,10 @@ namespace discipline.hangfire.add_planned_tasks.DTOs;
 
 internal sealed record ActivityRuleDto
 {
-    public Ulid ActivityRuleId { get; init; }
-    public Ulid UserId { get; init; }
+    public required string ActivityRuleId { get; init; }
+    public required string UserId { get; init; }
     public required string Mode { get; init; }
-    public int[]? SelectedDays { get; init; }
-    public DateTimeOffset UpdatedAt { get; init; }
+    public Ulid ParsedActivityRuleId => Ulid.Parse(ActivityRuleId); 
+    public Ulid ParsedUserId => Ulid.Parse(UserId);
+    
 }

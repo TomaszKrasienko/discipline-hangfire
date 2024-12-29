@@ -13,7 +13,7 @@ internal static class EventServicesConfigurationExtensions
         services.Scan(s => s.FromAssemblies(assemblies)
             .AddClasses(c => c.AssignableTo(typeof(IEventHandler<>)))
             .AsImplementedInterfaces()
-            .WithScopedLifetime());
+            .WithTransientLifetime());
         services.AddSingleton<IEventDispatcher, EventDispatcher>();
         services.AddSingleton<IRouteRegister, RouteRegister>();
         

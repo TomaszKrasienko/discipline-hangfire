@@ -1,4 +1,6 @@
+using discipline.hangfire.add_planned_tasks.Clients.Configuration;
 using discipline.hangfire.add_planned_tasks.Handlers.Configuration;
+using Microsoft.Extensions.Configuration;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -8,8 +10,9 @@ namespace Microsoft.Extensions.DependencyInjection;
 /// </summary>
 public static class AddPlannedTasksServicesConfigurationExtensions
 {
-    public static IServiceCollection SetAddPlannedTasks(this IServiceCollection services)
+    public static IServiceCollection SetAddPlannedTasks(this IServiceCollection services, IConfiguration configuration)
         => services
             .AddData()
-            .AddHandlers();
+            .AddHandlers()
+            .AddCentreClient(configuration);
 }

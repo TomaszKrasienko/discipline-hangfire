@@ -14,16 +14,16 @@ internal sealed class PlannedTaskDataService(
         connection.Open();
         
         const string sql = """
-                           INSERT INTO (id, activity_rule_id, user_id, planned_for, created)
+                           INSERT INTO tasks."Planned"(id, activity_rule_id, user_id, planned_for, created)
                            VALUES (@Id, @ActivityRuleId, @UserId, @PlannedFor, false)
                            """;
 
         await connection.ExecuteAsync(sql, new
         {
-            Id = Ulid.NewUlid(),
-            ActivityRuleId = activityRuleId,
-            UserId = userId,
-            PlannedFor = plannedFor
+            Id = Ulid.NewUlid().ToString(),
+            ActivityRuleId = activityRuleId.ToString(),
+            UserId = userId.ToString(),
+            PlannedFor = plannedFor.ToDateTime(TimeOnly.MinValue)
         });
     }
 }

@@ -7,5 +7,5 @@ internal static class HandlersServicesConfigurationExtensions
 {
     internal static IServiceCollection AddHandlers(this IServiceCollection services)
         => services
-            .AddScoped<IAddPlannedTasksHandler, AddPlannedTasksHandler>();
+            .AddTransient<IAddPlannedTasksHandler, AddPlannedTasksHandler>();
 }

@@ -8,5 +8,5 @@ internal static class DataServicesConfigurationExtensions
 {
     internal static IServiceCollection AddData(this IServiceCollection services)
         => services
-            .AddScoped<IActivityRulesDataService, ActivityRulesDataService>();
+            .AddTransient<IActivityRulesDataService, ActivityRulesDataService>();
 }
