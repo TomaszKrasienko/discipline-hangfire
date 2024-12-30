@@ -1,4 +1,5 @@
 using System.Reflection;
+using discipline.hangfire.infrastructure.Configuration.Options;
 using discipline.hangfire.infrastructure.Postgres.Configuration;
 using discipline.hangfire.infrastructure.RedisBroker;
 using discipline.hangfire.infrastructure.RedisBroker.Configuration;
@@ -26,12 +27,16 @@ public static class InfrastructureServicesExtensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration,
         IEnumerable<Assembly> assemblies)
         => services
+            .AddOptions(configuration)
             .AddAuth(configuration)
             .AddClock()
             .AddPostgres(configuration)
             .AddEvents(assemblies)
             .AddSerializer()
             .AddRedisBroker(configuration);
+
+    private static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
+        => services.ValidateAndBind<AppOptions, AppOptionsValidator>(configuration);
     
     /// <summary>
     /// Extension for <see cref="IServiceCollection"/> that validates options at startup and registers them in dependency injection container. 
@@ -51,5 +56,11 @@ public static class InfrastructureServicesExtensions
         services.AddSingleton<IValidateOptions<TOptions>, TOptionsValidator>();
         
         return services;
+    }
+    
+    internal static TOptions GetOptions<TOptions>(this IServiceCollection services) where TOptions : class
+    {
+        var sp = services.BuildServiceProvider();
+        return sp.GetRequiredService<IOptions<TOptions>>().Value;
     }
 }
