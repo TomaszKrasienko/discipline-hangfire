@@ -8,7 +8,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Data\" />
+      <Folder Include="Handlers\Configuration\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Ulid" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 using System.Reflection;
 using discipline.hangfire.infrastructure.Configuration.Options;
+using discipline.hangfire.infrastructure.Logging.Configuration;
 using discipline.hangfire.infrastructure.Postgres.Configuration;
 using discipline.hangfire.infrastructure.RedisBroker;
 using discipline.hangfire.infrastructure.RedisBroker.Configuration;
@@ -33,7 +34,8 @@ public static class InfrastructureServicesExtensions
             .AddPostgres(configuration)
             .AddEvents(assemblies)
             .AddSerializer()
-            .AddRedisBroker(configuration);
+            .AddRedisBroker(configuration)
+            .AddLogging(configuration);
 
     private static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
         => services.ValidateAndBind<AppOptions, AppOptionsValidator>(configuration);
