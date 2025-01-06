@@ -29,15 +29,17 @@ internal sealed record PlannedTaskEntity
     
     /// <summary>
     /// Indicates whether the planned task has been created.
-    /// <c>True</c> if the task was created; otherwise <c>False</c>.
+    /// <c>new</c> if the task was created;
+    /// <c>processing</c> while working with task;
+    /// <c>created</c> when finished use case
     /// </summary>
-    public bool Created { get; init; }
+    public string State { get; init; }
 
     /// <summary>
     /// Creates a new instance <see cref="PlannedTaskEntity"/>. Maps field on target type.
     /// </summary>
     /// <exception cref="ArgumentException">Thrown if any if the input type is invalid</exception>
-    public PlannedTaskEntity(string id, string activityRuleId, string userId, DateOnly plannedFor, bool created)
+    public PlannedTaskEntity(string id, string activityRuleId, string userId, DateTime plannedFor, string state)
     {
         if (!Ulid.TryParse(id, out var convertedId))
         {
@@ -47,7 +49,7 @@ internal sealed record PlannedTaskEntity
         Id = convertedId;
         ActivityRuleId = ActivityRuleId.Parse(activityRuleId);
         UserId = UserId.Parse(userId);
-        PlannedFor = plannedFor;
-        Created = created;
+        PlannedFor = DateOnly.FromDateTime(plannedFor);
+        State = state;
     }
 }

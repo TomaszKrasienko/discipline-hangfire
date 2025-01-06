@@ -1,9 +1,12 @@
+using discipline.hangfire.infrastructure.RedisBroker;
+using discipline.hangfire.infrastructure.RedisBroker.Configuration;
+using discipline.hangfire.shared.abstractions.Brokers;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 
-namespace discipline.hangfire.infrastructure.RedisBroker.Configuration;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection;
 
 internal static class RedisBrokerServicesConfigurationExtensions
 {
@@ -16,5 +19,6 @@ internal static class RedisBrokerServicesConfigurationExtensions
                 var connectionString = options.Value.ConnectionString;
 
                 return ConnectionMultiplexer.Connect(connectionString);
-            });
+            })
+            .AddScoped<IRedisClient, RedisClient>();
 }

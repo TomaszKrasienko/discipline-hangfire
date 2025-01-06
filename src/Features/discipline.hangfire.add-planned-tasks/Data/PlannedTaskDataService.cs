@@ -11,11 +11,10 @@ internal sealed class PlannedTaskDataService(
         CancellationToken cancellationToken)
     {
         using var connection = context.GetConnection();
-        connection.Open();
         
         const string sql = """
-                           INSERT INTO tasks."Planned"(id, activity_rule_id, user_id, planned_for, created)
-                           VALUES (@Id, @ActivityRuleId, @UserId, @PlannedFor, false)
+                           INSERT INTO tasks."Planned"(id, activity_rule_id, user_id, planned_for)
+                           VALUES (@Id, @ActivityRuleId, @UserId, @PlannedFor)
                            """;
 
         await connection.ExecuteAsync(sql, new

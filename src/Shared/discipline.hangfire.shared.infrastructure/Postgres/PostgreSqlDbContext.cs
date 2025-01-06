@@ -13,7 +13,11 @@ internal sealed class PostgreSqlDbContext(IOptions<LogicPostgresOptions> options
     private IDbConnection? _connection;
     
     public IDbConnection GetConnection()
-        => _connection ??= new NpgsqlConnection(_connectionString);
+    {
+        _connection = new NpgsqlConnection(_connectionString);
+        _connection!.Open();
+        return _connection;
+    }
 
     public void Dispose()
         => _connection?.Dispose();

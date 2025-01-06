@@ -23,16 +23,15 @@ internal sealed class PostgreSqlMigrator : IHostedService
 
 					create schema tasks
                           
-					create table tasks.""Planned""
-					(
-						  id varchar(30) not null
-						, activity_rule_id VARCHAR(30) not null 
-						, user_id VARCHAR(30) not null 
-						, planned_for DATE not null
-						, created BOOL not null
-						, primary key (id)
-						, unique (activity_rule_id, user_id, planned_for)
-					)
+					CREATE TABLE tasks.""Planned"" (
+						id varchar(30) NOT NULL,
+						activity_rule_id varchar(30) NOT NULL,
+						user_id varchar(30) NOT NULL,
+						planned_for date NOT NULL,
+						state varchar(30) NOT null default 'new',
+						CONSTRAINT ""Planned_activity_rule_id_user_id_planned_for_key"" UNIQUE (activity_rule_id, user_id, planned_for),
+						CONSTRAINT ""Planned_pkey"" PRIMARY KEY (id)
+					);
 				END IF;
 			END $$;";
         return Task.CompletedTask;
