@@ -6,17 +6,21 @@
 
     <ItemGroup>
       <PackageReference Include="Dapper" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
       <PackageReference Include="Refit" />
       <PackageReference Include="Refit.HttpClientFactory" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.abstractions\discipline.hangfire.shared.abstractions.csproj" />
-      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
-    </ItemGroup>
-    <ItemGroup>
         <InternalsVisibleTo Include="discipline.hangfire.add-activity-rules.unit_tests"/>
         <InternalsVisibleTo Include="DynamicProxyGenAssembly2"/>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageVersion Update="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+      <PackageVersion Update="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\Shared\discipline.hangfire.shared.infrastructure\discipline.hangfire.shared.infrastructure.csproj" />
     </ItemGroup>
 </Project>

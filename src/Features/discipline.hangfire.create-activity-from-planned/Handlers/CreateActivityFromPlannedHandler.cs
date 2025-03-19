@@ -4,7 +4,6 @@ using discipline.hangfire.create_activity_from_planned.Publishers.Abstractions;
 using discipline.hangfire.create_activity_from_planned.Publishers.Commands;
 using discipline.hangfire.shared.abstractions.DataAccess;
 using discipline.hangfire.shared.abstractions.Time;
-using Microsoft.Extensions.Logging;
 
 namespace discipline.hangfire.create_activity_from_planned.Handlers;
 

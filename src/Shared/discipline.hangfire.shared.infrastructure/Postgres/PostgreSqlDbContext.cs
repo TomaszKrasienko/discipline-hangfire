@@ -6,7 +6,7 @@ using Npgsql;
 
 namespace discipline.hangfire.infrastructure.Postgres;
 
-internal sealed class PostgreSqlDbContext(IOptions<LogicPostgresOptions> options
+internal sealed class PostgreSqlDbContext(IOptions<PostgresBusinessOptions> options
     ) : IDbContext
 {
     private readonly string _connectionString = options.Value.ConnectionString;

@@ -2,8 +2,6 @@ using System.Reflection;
 using discipline.hangfire.infrastructure.Configuration.Options;
 using discipline.hangfire.infrastructure.Logging.Configuration;
 using discipline.hangfire.infrastructure.Postgres.Configuration;
-using discipline.hangfire.infrastructure.RedisBroker;
-using discipline.hangfire.infrastructure.RedisBroker.Configuration;
 using discipline.hangfire.infrastructure.Serializer.Configuration;
 using discipline.hangfire.infrastructure.Time.Configuration;
 using Microsoft.Extensions.Configuration;

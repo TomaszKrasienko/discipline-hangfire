@@ -2,12 +2,10 @@ using Dapper;
 using discipline.hangfire.create_activity_from_planned.Data.Abstractions;
 using discipline.hangfire.create_activity_from_planned.Data.Entities;
 using discipline.hangfire.shared.abstractions.DataAccess;
-using Microsoft.Extensions.Logging;
 
 namespace discipline.hangfire.create_activity_from_planned.Data;
 
 internal sealed class PlannedTaskDataService(
-    ILogger<PlannedTaskDataService> logger,
     IDbTransactionManager dbTransactionManager) : IPlannedTaskDataService
 {
     public async Task<PlannedTaskEntity?> GetPlannedTaskAsync(DateOnly day, CancellationToken cancellationToken)
@@ -42,7 +40,6 @@ internal sealed class PlannedTaskDataService(
         catch (Exception ex)
         {
             dbTransactionManager.Rollback();
-            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -63,12 +60,10 @@ internal sealed class PlannedTaskDataService(
                 @plannedTaskId = plannedTaskId.ToString()
             });
             
-            logger.LogDebug("Marked task with ID: {0} as 'Processing'", plannedTaskId);
         }
         catch (Exception ex)
         {
             dbTransactionManager.Rollback();
-            logger.LogError(ex, ex.Message);
             throw;
         }
     }
@@ -88,12 +83,9 @@ internal sealed class PlannedTaskDataService(
             {
                 @plannedTaskId = plannedTaskId.ToString()
             });
-            
-            logger.LogDebug("Marked task with ID: {0} as 'Done'", plannedTaskId);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, ex.Message);
             throw;
         }
     }

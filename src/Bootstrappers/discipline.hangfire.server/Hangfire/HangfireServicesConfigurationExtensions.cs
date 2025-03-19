@@ -18,13 +18,13 @@ internal static class HangfireServicesConfigurationExtensions
     
     private static IServiceCollection AddPostgresOptions(this IServiceCollection services, IConfiguration configuration)
         => services
-            .Configure<PostgresOptions>(configuration.GetSection(nameof(PostgresOptions)));
+            .Configure<PostgresHangfireOptions>(configuration.GetSection(nameof(PostgresHangfireOptions)));
 
     private static IServiceCollection AddServices(this IServiceCollection services)
     {
         var sp = services.BuildServiceProvider();
         using var scope = sp.CreateScope();
-        var postgresOptions = scope.ServiceProvider.GetRequiredService<IOptions<PostgresOptions>>();
+        var postgresOptions = scope.ServiceProvider.GetRequiredService<IOptions<PostgresHangfireOptions>>();
         services
             .AddHangfire(configuration =>
                 configuration

@@ -9,7 +9,7 @@ namespace discipline.hangfire.infrastructure.Postgres;
 
 internal sealed class PostgresDbConnectionFactory(
     ILogger<PostgresDbConnectionFactory> logger,
-    IOptions<LogicPostgresOptions> options)
+    IOptions<PostgresBusinessOptions> options)
     : IDbConnectionFactory
 {
     private readonly string _connectionString = options.Value.ConnectionString;

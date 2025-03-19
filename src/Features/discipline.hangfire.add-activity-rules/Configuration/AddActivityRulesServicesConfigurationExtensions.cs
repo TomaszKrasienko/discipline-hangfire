@@ -11,5 +11,6 @@ public static class AddActivityRulesServicesConfigurationExtensions
         => services
             .AddActivityRuleClientService(configuration)
             .AddData()
+            .AddDal()
             .AddBrokerConsumer<ActivityRuleRegistered>();
 }
