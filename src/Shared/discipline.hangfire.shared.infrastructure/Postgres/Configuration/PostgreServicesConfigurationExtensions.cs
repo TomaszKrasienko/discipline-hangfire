@@ -25,10 +25,12 @@ public static class PostgreServicesConfigurationExtensions
             .AddTransient<IDbConnectionFactory, PostgresDbConnectionFactory>()
             .AddTransient<IDbTransactionManager, DbTransactionManager>();
     
-    public static IServiceCollection AddContext<T>(this IServiceCollection services) where T : DbContext
+    public static IServiceCollection AddContext<TContext>(this IServiceCollection services) where TContext : DbContext
     {
+        services.AddHostedService<DatabaseMigrator<TContext>>();
+        
         var options = services.GetOptions<PostgresBusinessOptions>();
-        services.AddDbContext<T>(x => x.UseNpgsql(options.ConnectionString));
+        services.AddDbContext<TContext>(x => x.UseNpgsql(options.ConnectionString));
         return services;
     }
 }

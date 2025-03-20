@@ -8,10 +8,17 @@ internal sealed class ActivityRuleTypeConfiguration : IEntityTypeConfiguration<A
 {
     public void Configure(EntityTypeBuilder<ActivityRule> builder)
     {
+        builder.ToTable("ActivityRules");
+        
         builder.HasKey(x => x.ActivityRuleId);
 
         builder.Property(x => x.ActivityRuleId)
             .HasColumnName("ActivityRuleId")
+            .IsRequired()
+            .HasMaxLength(26);
+        
+        builder.Property(x => x.UserId)
+            .HasColumnName("UserId")
             .IsRequired()
             .HasMaxLength(26);
 

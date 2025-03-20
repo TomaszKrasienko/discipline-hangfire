@@ -5,10 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Dapper" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
-      <PackageReference Include="Ulid" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+        <PackageReference Include="Dapper" />
+        <PackageReference Include="Ulid" />
     </ItemGroup>
 
     <ItemGroup>

@@ -10,7 +10,6 @@ public static class AddActivityRulesServicesConfigurationExtensions
     public static IServiceCollection SetAddActivityRules(this IServiceCollection services, IConfiguration configuration)
         => services
             .AddActivityRuleClientService(configuration)
-            .AddData()
             .AddDal()
             .AddBrokerConsumer<ActivityRuleRegistered>();
 }
